@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      nav {
+        background-color: #000b3d;
+        padding: 10px;
+        display: flex;
+        justify-content: end;
+        gap: 10px;
+      }
+      #signInBtn,
+      #signUpBtn {
+        padding: 5px;
+        background-color: #004ff9;
+        border: none;
+        color: #fff;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+      .modal {
+        width: 100%;
+        height: 100%;
+        background-color: #17222275;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal_content {
+        background-color: #fff;
+        width: 300px;
+        height: 350px;
+        padding: 20px;
+      }
+      .close {
+        float: right;
+        cursor: pointer;
+      }
+      h1 {
+        color: #000b3d;
+        padding: 20px;
+      }
+      label {
+        display: block;
+        margin-top: 20px;
+      }
+      input {
+        width: 100%;
+        height: 30px;
+        border: 1px solid rgba(128, 128, 128, 0.515);
+        border-radius: 3px;
+        margin-top: 10px;
+      }
+      .btn {
+        width: 100%;
+        height: 40px;
+        background-color: #000b3d;
+        color: #fff;
+        font-size: 15px;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <button id="signInBtn">Sign In</button>
+      <button id="signUpBtn">Sign Up</button>
+    </nav>
+
+    <div class="modal" id="signInModal">
+      <div class="modal_content">
+        <span class="close" id="closeSinginModal"
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <h1>Sign In</h1>
+        <form>
+          <div class="formInputs">
+            <label for="userName">UserName</label>
+            <input type="text" name="userName" id="userName" />
+          </div>
+          <div class="formInputs">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <button class="btn">Sing In</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const signInBtn = document.getElementById("signInBtn");
+      const signInModal = document.getElementById("signInModal");
+      const closeSinginModal = document.getElementById("closeSinginModal");
+
+      signInBtn.addEventListener("click", function () {
+        signInModal.style.display = "flex";
+      });
+
+      closeSinginModal.addEventListener("click", function () {
+        signInModal.style.display = "none";
+      });
+
+      window.addEventListener("click", function (e) {
+        if (e.target === signInModal) signInModal.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

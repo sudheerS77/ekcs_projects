@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="head" id="heading">DOM</h1>
+    <h2>Accessing DOM Element Methods</h2>
+    <p>You can access Dom Elements</p>
+
+    <script>
+      const heading = document.getElementById("heading");
+      //   heading.innerHTML = "Document";
+      heading.style.color = "blue";
+      console.log(heading);
+      heading.classList.add("NewClassNAme");
+      heading.classList.remove("head");
+
+      console.log(heading.classList);
+
+      const listItems = document.getElementsByClassName("list-item");
+      listItems[0].innerHTML = "change";
+
+
+      listItems[1].style.backgroundColor = "red";
+
+      const tagSele = document.getElementsByTagName("li");
+      console.log(tagSele);
+
+      //   Query Selector
+      // const qs = document.querySelector(".list-item");
+      // console.log(qs);
+      // const qs1 = document.querySelectorAll(".list-item");
+      // console.log(qs1[0]);
+
+      // const newDiv = document.createElement("li");
+      // newDiv.innerHTML = "Created a New Div";
+      // newDiv.style.border = "2px solid red";
+      // newDiv.style.padding = "20px";
+
+      // const ulEle = document.querySelector("ul");
+      // ulEle.appendChild(newDiv)
+     
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .bmi_form {
+      }
+      .input_data {
+        margin: 20px 0;
+      }
+      .input_data input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      button {
+        color: #fff;
+        background-color: blue;
+        border: none;
+        padding: 10px 20px;
+        width: 100%;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>BMI CALCULATOR</h1>
+
+      <div class="bmi_form">
+        <div class="input_data">
+          <label for="weight">Weight (Kg):</label>
+          <input type="number" id="weight" placeholder="Enter your weight" />
+        </div>
+        <div class="input_data">
+          <label for="height">Height (cm):</label>
+          <input type="number" id="height" placeholder="Enter your Height" />
+        </div>
+        <button onclick="calcBMI()">Calculate BMI</button>
+        <div id="bmiResult"></div>
+      </div>
+    </div>
+
+    <script>
+      function calcBMI() {
+        const weight = parseFloat(document.getElementById("weight").value);
+        const height = parseFloat(document.getElementById("height").value);
+
+        const bmi = Math.round(weight / ((height / 100) * (height / 100)));
+        if (!isNaN(weight) && !isNaN(height)) {
+          const bmiRes = document.getElementById("bmiResult");
+          bmiRes.innerHTML = `Your BMI is: ${bmi}`;
+          if (bmi < 18.5) {
+            bmiRes.innerHTML += " UnderWeight";
+          } else if (bmi > 18.5 && bmi < 24.9) {
+            bmiRes.innerHTML += " Healthy";
+          } else if (bmi > 25 && bmi < 29.9) {
+            bmiRes.innerHTML += " Over Weight";
+          } else {
+            bmiRes.innerHTML += " Obese";
+          }
+        } else {
+          alert("please enter valid weight and height");
+        }
+      }
+    </script>
+  </body>
+</html>

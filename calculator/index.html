@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .calculaor {
+        width: 400px;
+        height: 400px;
+
+        background: rgba(1, 11, 16, 0.05);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        padding: 20px;
+      }
+      .display {
+        width: 95%;
+        height: 70px;
+        background: rgba(125, 172, 196, 0.05);
+        box-shadow: 0 8px 12px 0 rgba(31, 38, 135, 0.222);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        border: 1px solid rgba(53, 49, 49, 0.18);
+        padding: 0 0 0 10px;
+      }
+      input {
+        width: 100%;
+        height: 70px;
+        box-shadow: 0 8px 12px 0 rgba(31, 38, 135, 0.222);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+      input:hover {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="calculaor">
+      <tr>
+        <td colspan="3">
+          <input
+            type="text"
+            name=""
+            value="0"
+            class="display"
+            id="result"
+            disabled
+          />
+        </td>
+        <td>
+          <input type="button" value="CE" onclick="clearScreen()" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="7" onclick="displayValue('7')" />
+        </td>
+        <td>
+          <input type="button" value="8" onclick="displayValue('8')" />
+        </td>
+        <td>
+          <input type="button" value="9" onclick="displayValue('9')" />
+        </td>
+        <td>
+          <input type="button" value="/" onclick="displayValue('/')" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="4" onclick="displayValue('4')" />
+        </td>
+        <td>
+          <input type="button" value="5" onclick="displayValue('5')" />
+        </td>
+        <td>
+          <input type="button" value="6" onclick="displayValue('6')" />
+        </td>
+        <td>
+          <input type="button" value="*" onclick="displayValue('*')" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="1" onclick="displayValue('1')" />
+        </td>
+        <td>
+          <input type="button" value="2" onclick="displayValue('2')" />
+        </td>
+        <td>
+          <input type="button" value="3" onclick="displayValue('3')" />
+        </td>
+        <td>
+          <input type="button" value="-" onclick="displayValue('-')" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="." onclick="displayValue('.')" />
+        </td>
+        <td>
+          <input type="button" value="0" onclick="displayValue('0')" />
+        </td>
+        <td>
+          <input type="button" value="=" onclick="Calculate()" />
+        </td>
+        <td>
+          <input type="button" value="+" onclick="displayValue('+')" />
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      function displayValue(value) {
+        document.getElementById("result").value += value;
+      }
+
+      function clearScreen() {
+        document.getElementById("result").value = "";
+      }
+
+      function Calculate(value) {
+        const d_Value = document.getElementById("result").value;
+        const res = eval(d_Value);
+        document.getElementById("result").value = res;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <h1>DOM - Document Object Model</h1>
+    <h3>DOM - Methods</h3>
+    <ul>
+      <li>getElementById</li>
+      <li>getElementByClassName</li>
+      <li>getElementByTagName</li>
+      <li>querySelector</li>
+    </ul>
+
+    <div id="details">
+      <h1>Details</h1>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est sit
+        ratione quos quam iusto tempore blanditiis voluptas reprehenderit maxime
+        minus officia, quod praesentium labore molestias illum possimus.
+        Mollitia, harum animi.
+      </p>
+    </div>
+    <div class="dom_class">getElementByClassName</div>
+    <div class="dom_class">2</div>
+    <div class="dom_class">3</div>
+
+    <img
+      src="https://img.freepik.com/free-vector/sedan-car-concept-illustration_114360-13223.jpg"
+      alt=""
+      id="car_image"
+      width="400"
+      height="200"
+    />
+    <button onclick="changeImage()">change Image</button>
+
+    <script>
+      const desc_node = document.getElementById("details");
+      const dom_class_node = document.getElementsByClassName("dom_class");
+width
+      function changeImage() {
+        const car2_image =
+          "https://img.freepik.com/free-photo/blue-black-muscle-car-with-license-plate-that-says-trans-front_1340-23399.jpg?w=2000";
+        const car_img_node = document.getElementById("car_image");
+        console.log(car_img_node.attributes);
+        car_img_node.src = car2_image;
+        car_img_node.alt = "car2_image";
+        car_img_node.style.width = "1000px";
+      }
+
+      const h6_ele = document.createElement("h6");
+      h6_ele.innerHTML = "H6 ELEMENT"
+      document.body.appendChild(h6_ele);     
+
+      //
+    </script>
+  </body>
+</html>
